@@ -1,3 +1,5 @@
 module.exports = {
-  rules: {},
+  rules: {
+    'require-prevent-default': require('./require-prevent-default'),
+  },
 };
