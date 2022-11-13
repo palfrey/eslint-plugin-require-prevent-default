@@ -21,11 +21,8 @@ ruleTester.run("require-prevent-default", requirePreventDefaultRule, {
       code: "<button onClick={(e) => {e.preventDefault();}} />",
     },
     {
-      code: "<button onClick={(e) => {e.preventDefault();}} />",
-    },
-    {
       code: "<button onChange={() => {}} />",
-    },    
+    },
   ],
   invalid: [
     {

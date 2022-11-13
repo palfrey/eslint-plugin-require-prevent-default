@@ -1,0 +1,4 @@
+{
+  "extends": ["plugin:eslint-plugin/recommended"],
+  "parser": "@babel/eslint-parser"
+}
