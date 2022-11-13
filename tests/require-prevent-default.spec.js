@@ -8,6 +8,24 @@ ruleTester.run("require-prevent-default", requirePreventDefaultRule, {
     {
       code: "<a onClick={(e) => {e.preventDefault();}}></a>",
     },
+    {
+      code: "<a onClick={(event) => {event.preventDefault();}}></a>",
+    },
+    {
+      code: `<a onClick={(e) => {
+        foo();
+        e.preventDefault();
+      }}></a>`,
+    },
+    {
+      code: "<button onClick={(e) => {e.preventDefault();}} />",
+    },
+    {
+      code: "<button onClick={(e) => {e.preventDefault();}} />",
+    },
+    {
+      code: "<button onChange={() => {}} />",
+    },    
   ],
   invalid: [
     {
@@ -17,6 +35,10 @@ ruleTester.run("require-prevent-default", requirePreventDefaultRule, {
     {
       code: "<a onClick={() => {}}></a>",
       errors: [{ messageId: "noPreventDefaultArgs" }],
+    },
+    {
+      code: "<a onClick={(event) => {event.preventDefault;}}></a>",
+      errors: [{ messageId: "noPreventDefault" }],
     },
   ],
 });

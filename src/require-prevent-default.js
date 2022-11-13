@@ -27,16 +27,16 @@ function checkFunction(context, func) {
 module.exports = {
   meta: {
     messages: {
-      noPreventDefault: "Require event.preventDefault in on* methods",
+      noPreventDefault: "Require event.preventDefault in onClick methods",
       noPreventDefaultArgs:
-        "Require preventDefault in on* methods (missing event arg)",
+        "Require preventDefault in onClick methods (missing event arg)",
     },
   },
   create(context) {
     return {
       JSXOpeningElement(node) {
         for (const attr of node.attributes) {
-          if (attr.name.name.startsWith("on")) {
+          if (attr.name.name == "onClick") {
             checkFunction(context, attr.value.expression);
           }
         }
