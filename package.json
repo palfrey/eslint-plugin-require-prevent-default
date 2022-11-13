@@ -1,11 +1,24 @@
 {
   "name": "eslint-plugin-require-prevent-default",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.js",
   "peerDependencies": {
     "eslint": "^8"
   },
+  "keywords": ["eslint", "eslint-plugin", "eslintplugin"],
+  "homepage": "https://github.com/palfrey/eslint-plugin-require-prevent-default",
+  "bugs": "https://github.com/palfrey/eslint-plugin-require-prevent-default/issues",
   "license": "LGPL",
+  "author": {
+      "name": "Tom Parker-Shemilt",
+      "email": "palfrey@tevp.net",
+      "url": "https://tevps.net/"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/palfrey"
+  },
+  "files": ["src/*"],
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/eslint-parser": "^7.19.1",
