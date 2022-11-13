@@ -1,10 +1,11 @@
 {
   "name": "eslint-plugin-require-prevent-default",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "src/index.js",
   "peerDependencies": {
     "eslint": "^8"
   },
+  "license": "LGPL",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/eslint-parser": "^7.19.1",
