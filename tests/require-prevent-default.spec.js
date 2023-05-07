@@ -45,6 +45,10 @@ Object.keys(ruleTesters).forEach((rt) => {
         errors: [{ messageId: "noPreventDefaultArgs" }],
       },
       {
+        code: "<a onClick={func}></a>",
+        errors: [{ messageId: "noPreventDefaultArgs" }],
+      },      
+      {
         code: "<a onClick={(event) => {event.preventDefault;}}></a>",
         errors: [{ messageId: "noPreventDefault" }],
       },

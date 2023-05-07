@@ -1,4 +1,8 @@
 function checkFunction(context, func) {
+  if (typeof func.params === 'undefined') {
+    context.report({ node: func, messageId: "noPreventDefaultArgs" });
+    return;
+  }
   if (func.params.length == 0) {
     context.report({ node: func.body, messageId: "noPreventDefaultArgs" });
     return;
