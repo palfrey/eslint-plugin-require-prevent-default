@@ -3,32 +3,38 @@
   "version": "0.1.2",
   "main": "src/index.js",
   "peerDependencies": {
-    "eslint": "^8"
+    "eslint": ">=8 <10"
   },
-  "keywords": ["eslint", "eslint-plugin", "eslintplugin"],
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin"
+  ],
   "homepage": "https://github.com/palfrey/eslint-plugin-require-prevent-default",
   "bugs": "https://github.com/palfrey/eslint-plugin-require-prevent-default/issues",
   "license": "LGPL",
   "author": {
-      "name": "Tom Parker-Shemilt",
-      "email": "palfrey@tevp.net",
-      "url": "https://tevps.net/"
+    "name": "Tom Parker-Shemilt",
+    "email": "palfrey@tevp.net",
+    "url": "https://tevps.net/"
   },
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/palfrey"
   },
-  "files": ["src/*"],
+  "files": [
+    "src/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-transform-react-jsx": "^7.19.0",
-    "@typescript-eslint/parser": "^5.42.1",
+    "@typescript-eslint/parser": "^8",
     "eslint": "^8",
     "eslint-plugin-eslint-plugin": "^5.0.6",
     "jest": "^29.3.1",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "prettier": "^3",
+    "typescript": "^5"
   },
   "scripts": {
     "test": "jest",
