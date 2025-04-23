@@ -28,7 +28,9 @@ jobs:
           asdf_version: 0.16.7
 
       - name: Install pnpm
-        run: asdf install pnpm
+        run: |
+          asdf plugin add pnpm
+          asdf install pnpm        
           
       - name: Get pnpm store directory
         id: pnpm-cache
