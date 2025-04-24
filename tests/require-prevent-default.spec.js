@@ -1,12 +1,23 @@
+const globalPackageVersion = require('global-package-version');
 const { RuleTester } = require("eslint");
 const requirePreventDefaultRule = require("../src/require-prevent-default.js");
-const ruleTesters = {
+
+globalPackageVersion(require("eslint/package.json"));
+const ruleTesters = packageVersion.eslint.startsWith("8") ? {
   js: new RuleTester({
     parser: require.resolve("@typescript-eslint/parser"),
     parserOptions: { ecmaFeatures: { jsx: true } },
   }),
   ts: new RuleTester({
     parser: require.resolve("@babel/eslint-parser"),
+  }),
+}:  {
+  js: new RuleTester({
+    languageOptions: {parser: require("@typescript-eslint/parser"),
+    parserOptions: { ecmaFeatures: { jsx: true } }},
+  }),
+  ts: new RuleTester({
+    languageOptions: {parser: require("@babel/eslint-parser")},
   }),
 };
 Object.keys(ruleTesters).forEach((rt) => {
@@ -47,7 +58,7 @@ Object.keys(ruleTesters).forEach((rt) => {
       {
         code: "<a onClick={func}></a>",
         errors: [{ messageId: "noPreventDefaultArgs" }],
-      },      
+      },
       {
         code: "<a onClick={(event) => {event.preventDefault;}}></a>",
         errors: [{ messageId: "noPreventDefault" }],

@@ -2,18 +2,18 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x, 23.x]
+        eslint-version: [8, 9]
 
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +30,8 @@ jobs:
       - name: Install pnpm
         run: |
           asdf plugin add pnpm
-          asdf install pnpm        
-          
+          asdf install pnpm
+
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
@@ -47,5 +47,8 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - run: pnpm install
+      - run: |
+          pnpm install eslint@${{ matrix.eslint-version }}
+          make setup-${{ matrix.eslint-version }}
       - run: pnpm lint
       - run: pnpm test
