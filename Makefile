@@ -4,4 +4,4 @@ setup-8:
 
 setup-9:
 	if [ -f .eslintrc.json ]; then mv .eslintrc.json .eslintrc.8.json; fi; \
-	if [ -f eslint.config.9.cjs ]; then mv eslint.config.9.js eslint.config.cjs; fi
+	if [ -f eslint.config.9.cjs ]; then mv eslint.config.9.cjs eslint.config.cjs; fi
