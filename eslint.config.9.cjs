@@ -4,7 +4,7 @@ const babelParser = require("@babel/eslint-parser");
 
 module.export = defineConfig([
   {
-    plugins: {"eslint-plugin": plugin},
+    plugins: { "eslint-plugin": plugin },
     extends: ["eslint-plugin/recommended"],
     languageOptions: {
       parser: babelParser,

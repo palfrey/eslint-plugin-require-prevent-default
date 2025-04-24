@@ -1,25 +1,29 @@
-const globalPackageVersion = require('global-package-version');
+const globalPackageVersion = require("global-package-version");
 const { RuleTester } = require("eslint");
 const requirePreventDefaultRule = require("../src/require-prevent-default.js");
 
 globalPackageVersion(require("eslint/package.json"));
-const ruleTesters = packageVersion.eslint.startsWith("8") ? {
-  js: new RuleTester({
-    parser: require.resolve("@typescript-eslint/parser"),
-    parserOptions: { ecmaFeatures: { jsx: true } },
-  }),
-  ts: new RuleTester({
-    parser: require.resolve("@babel/eslint-parser"),
-  }),
-}:  {
-  js: new RuleTester({
-    languageOptions: {parser: require("@typescript-eslint/parser"),
-    parserOptions: { ecmaFeatures: { jsx: true } }},
-  }),
-  ts: new RuleTester({
-    languageOptions: {parser: require("@babel/eslint-parser")},
-  }),
-};
+const ruleTesters = packageVersion.eslint.startsWith("8")
+  ? {
+      js: new RuleTester({
+        parser: require.resolve("@typescript-eslint/parser"),
+        parserOptions: { ecmaFeatures: { jsx: true } },
+      }),
+      ts: new RuleTester({
+        parser: require.resolve("@babel/eslint-parser"),
+      }),
+    }
+  : {
+      js: new RuleTester({
+        languageOptions: {
+          parser: require("@typescript-eslint/parser"),
+          parserOptions: { ecmaFeatures: { jsx: true } },
+        },
+      }),
+      ts: new RuleTester({
+        languageOptions: { parser: require("@babel/eslint-parser") },
+      }),
+    };
 Object.keys(ruleTesters).forEach((rt) => {
   const ruleTester = ruleTesters[rt];
   ruleTester.run(`require-prevent-default (${rt})`, requirePreventDefaultRule, {
